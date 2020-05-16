@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+// React에 Apollo Client 연결 (앱 내의 모든 컴포넌트에서 GraphQL API 연동)
 import { ApolloProvider } from 'react-apollo';
 import client from './apolloClient';
 

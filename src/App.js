@@ -1,26 +1,26 @@
 import React, { useState, useEffect, Fragment } from "react";
-// import { Query } from 'react-apollo';
-// import gql from 'graphql-tag';
-// import client from './apolloClient';
+import { Query } from 'react-apollo';
+import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks';
 
 import './App.css';
 import TodoInsert from './components/TodoInsert';
 import TodoItem from './components/TodoItem';
-
-// const TODOS = gql`
-//   query {
-//     todos {
-//      name
-//      done 
-//     }   
-//   }
-// `;
 
 const tasks = [
   { name: 'task 1', done: false },
   { name: 'task 2', done: false },
   { name: 'task 3', done: false },
 ];
+
+const GET_TODOS = gql`
+  query {
+    todos {
+     name
+     done 
+    }   
+  }
+  `;
 
 function App() {
   const [todos, setTodos] = useState(tasks);
@@ -60,7 +60,7 @@ function App() {
         onChange={e => setInputValue(e.target.value)}
       />
       <ul>
-        {/* <Query query={TODOS}>
+        <Query query={GET_TODOS}>
           {
             ({ loading, data, error }) => {
               console.log(loading, data, error);
@@ -83,16 +83,16 @@ function App() {
               })
             }
           }
-        </Query> */}
+        </Query>
 
-        {todos.map((todo, index) => (
+        {/* {todos.map((todo, index) => (
           <TodoItem
             key={index}
             todo={todo}
             remove={() => _handleBntClick({ type: "remove", index })}
             completed={() => _handleBntClick({ type: "completed", index })}
           />
-        ))}
+        ))} */}
       </ul>
     </Fragment>
   );
