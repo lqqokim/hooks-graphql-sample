@@ -37,7 +37,7 @@ mongoose.connect(process.env.DATABASE_URL, mongooseOptions, (err) => {
  */
 app.use('/graphql', graphqlHTTP({
     schema: schema,
-    graphiql: true
+    graphiql: process.env.NODE_ENV === 'production' ? false : true
 }));
 
 

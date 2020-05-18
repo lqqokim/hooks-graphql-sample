@@ -1,8 +1,8 @@
 import Todo from './models/Todo';
 export const resolvers = {
   Query: {
-    todos() {
-      return Todo.find();
+    async todos() {
+      return await Todo.find();
     },
     todo(root, { _id }) {
       return Todo.findById(_id);
@@ -10,12 +10,15 @@ export const resolvers = {
   },
   Mutation: {
     createTodo(root, { input }) {
-      return Todo.create(input)
+      const todo = new Todo(input)
+
+
+      return Todo.create(todo);
     },
     updateTodo(root, { _id, input }) {
       return Todo.findOneAndUpdate({ _id }, input, { new: true });
     },
-    deleteUser(root, { _id }) {
+    deleteTodo(root, { _id }) {
       return Todo.findOneAndDelete({ _id });
     }
   }

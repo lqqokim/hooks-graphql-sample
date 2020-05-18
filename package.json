@@ -25,6 +25,7 @@
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-apollo": "^3.1.5",
+    "react-apollo-hooks": "^0.5.0",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
@@ -33,7 +34,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "nodemon server/app.js --exec babel-node",
+    "server": "NODE_ENV=development nodemon server/app.js --exec babel-node",
     "front": "npm start",
     "dev": "concurrently \"npm run server\" \"npm run front\""
   },

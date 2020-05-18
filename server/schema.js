@@ -21,7 +21,7 @@ const typeDefs = `
     type Mutation {
         createTodo(input: TodoInput): Todo
         updateTodo(_id: ID!, input: TodoInput): Todo
-        deleteUser(_id: ID!): Todo
+        deleteTodo(_id: ID!): Todo
     }
 `;
 
