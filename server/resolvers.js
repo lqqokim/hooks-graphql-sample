@@ -4,21 +4,18 @@ export const resolvers = {
     async todos() {
       return await Todo.find();
     },
-    todo(root, { _id }) {
+    todo(_, { _id }) {
       return Todo.findById(_id);
     }
   },
   Mutation: {
-    createTodo(root, { input }) {
-      const todo = new Todo(input)
-
-
-      return Todo.create(todo);
+    createTodo(_, { input }) {
+      return Todo.create(input);
     },
-    updateTodo(root, { _id, input }) {
+    updateTodo(_, { _id, input }) {
       return Todo.findOneAndUpdate({ _id }, input, { new: true });
     },
-    deleteTodo(root, { _id }) {
+    deleteTodo(_, { _id }) {
       return Todo.findOneAndDelete({ _id });
     }
   }
