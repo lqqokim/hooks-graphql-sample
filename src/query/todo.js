@@ -27,3 +27,13 @@ export const DELETE_TODO = gql`
     }
   }
 `
+
+export const UPDATE_TODO = gql`
+  mutation UpdateTodo($_id: String, $input: TodoInput ) {
+    updateTodo(_id: $_id, input: $input) {
+      _id
+      name
+      done
+    }
+  }
+`
