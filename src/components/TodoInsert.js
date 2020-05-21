@@ -7,7 +7,7 @@ function TodoInsert(props) {
         type="text"
         value={props.value}
         onChange={props.onChange}
-        placeholder="Ex.: meeting at 4:20"
+        placeholder="해야할 일 입력"
       />
       <button type="submit">Add ToDo</button>
     </form>
